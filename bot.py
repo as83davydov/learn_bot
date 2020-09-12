@@ -3,13 +3,14 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 import settings
 
-logging.basicConfig(filename='bot.log', level=logging.INFO) #записывается лог и уровень важности сообщения
+logging.basicConfig(filename='bot.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s') #записывается лог и уровень важности сообщения
 
 PROXY = {'proxy_url': settings.PROXY_URL,
     'urllib3_proxy_kwargs': {'username': settings.PROXY_USERNAME, 'password': settings.PROXY_PASSWORD}}
 
 def greet_user(update, contex):
     print('Вызван /start')
+    #print(update)
     update.message.reply_text('Здравствуй пользователь')
 
 def talk_to_me(update, contex):
